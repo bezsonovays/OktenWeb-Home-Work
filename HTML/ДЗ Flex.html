@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=А, initial-scale=1.0">
+    <title>Flex</title>
+</head>
+<style>
+    * {
+        margin:0;
+        padding: 0;
+        box-sizing: border-box;
+        color: #fff;
+    }
+
+    h1, h2, h4{
+       
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 1.2;
+        text-align: center;
+            }
+
+    header {
+        background: #70cbf8;
+        width: 100%;
+        padding: 30px;
+        margin-bottom: 10px;
+    }
+
+    .centered {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-content: center;
+    }
+
+     .row {
+         display: flex;
+         width: 100%;
+         
+    }
+
+    .col1   {
+        display: flex;
+        flex-direction: column;
+        flex: 0 1 40%;
+        min-height: 500px;
+       
+        }
+
+    .col2 {
+         display: flex;
+         flex-direction: column;
+         flex: 0 1 60%;
+        }
+
+    .hero {
+        padding: 30px;
+        background: #ffdeb2;
+        margin: 0 10px 10px 0;
+        height: 40%;
+    }    
+    .slidebar {
+        background: #aad700;
+        padding: 30px;
+        margin: 0 10px 10px 0;
+        height: 60%;
+    }
+
+    .main-content {
+        background: #ffe300;
+        padding: 30px;
+        margin-bottom: 10px;
+        height: 80%;
+    }
+
+    .extra-content {
+        padding: 30px;
+        background: #092a5e;
+        margin-bottom: 10px;
+        height: 20%;
+    }
+
+    .related-img {
+        padding: 30px;
+        width: 70%;
+        background: #e2f3fe;
+        margin: 0 10px 10px 0;
+    }
+
+    .related-post {
+        padding: 30px;
+        width: 30%;
+        background: #d7d2c9;
+        margin-bottom: 10px;
+       
+    }
+    footer {
+        width: 100%;
+        padding: 30px;
+        background: #70cbf8;
+    }
+</style>
+<body>
+    <header class="centered">
+        <h1>Header</h1>
+    </header>
+    <main>
+        <div class="row">
+            <div class="column col1">
+                <div class="hero centered">
+                    <h4>Hero</h4>
+                </div>
+                <div class="slidebar centered">
+                    <h4>Sidebar</h4>
+                </div>
+            </div>
+            <div class="column col2">
+                <div class="main-content centered">
+                    <h4>Main content</h4>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste labore ad quis earum ratione, ducimus culpa fugiat odit quia nobis consequuntur ex optio laboriosam, esse asperiores, beatae dolor necessitatibus vitae!</p>
+                </div>
+                <div class="extra-content centered">
+                    <h4>Extra content</h4>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="related-img centered">
+                <h4>Related images</h4>
+            </div>
+            <div class="related-post centered">
+                <h4>Related Post</h4>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <h2>Footer</h2>
+    </footer>
+</body>
+</html>

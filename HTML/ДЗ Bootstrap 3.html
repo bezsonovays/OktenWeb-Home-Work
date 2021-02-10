@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=А, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Bootstrap 3</title>
+</head>
+<style>
+  body {
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+  }
+  .container-fluid {
+    padding: 0;
+  }
+.main__banner {
+  width: 100%;
+  background-color: #102b3e;
+  height: 70vh;
+  position: relative;
+
+}
+.footer {
+  width: 100%;
+  background-color: #102b3e;
+  min-height: 100px;
+}
+.main__conetnt {
+  margin: 0 auto;
+  margin-top: 20vh;
+}
+
+.main__header,  .maine__text{
+  color: #6964e2;
+  
+}
+
+.main__block {
+  background-color: #6964e2;
+  border-radius: 6px;
+  height: 10rem;
+  width: 12rem;
+
+}
+.main__blocks {
+	display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    max-width: 38rem;
+   bottom: -10%;
+   left: 25%;
+ 
+
+   
+}
+
+
+.content__block {
+  background-color: #6964e2;
+  border-radius: 6px;
+  height: 12rem;
+}
+
+.footer__icon {
+  background-color: #6964e2;
+  border-radius: 6px;
+  height: 20px;
+  width: 20px;
+}
+
+.footer__block {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:10px;
+margin-bottom: 20px;}
+
+.footer__text {
+  color: #6964e2;
+}
+.content {
+  margin-top: 100px;
+}
+
+.circle {
+  background-color: #6964e2;
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+}
+
+@media (min-width: 320px) and (max-width: 768px)  {
+	.main__blocks {
+		display: none !important;
+	}
+}
+
+</style>
+<body>
+ 
+    <nav class="navbar navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand text-dark" href="#">Logo</a>
+        <button class="navbar-toggler text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="collapse" id="navbarToggleExternalContent">
+      
+    </div>
+
+    <div class="container-fluid">
+        <div class="main__banner d-flex justify-content-center">
+          <div class="container position-relative">
+            <div class="main__conetnt container-sm px-5   "> 
+              <div class="m-5">
+                <div  iv class="main__header">
+                  <h1 class="text-center">Header</h1>
+                </div>
+                <div class="maine__text text-center">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae earum inventore sed officiis nisi tenetur. Modi facilis, eum repudiandae vel accusamus magni sequi. Quaerat qui, culpa recusandae amet reiciendis velit.
+                </div>
+                <div class="main__btn my-5 text-center">
+                  <button type="button" class="btn btn-dark px-5">More...</button>
+                </div>
+                <div class="main__blocks position-absolute">
+               
+                      <div class="main__block "></div>
+                      <div class="main__block "></div>
+                      <div class="main__block "></div>
+                
+          </div>
+        </div>
+        </div>
+     </div>
+    </div>
+    </div>
+ 
+    <div class="container content">
+  
+        <h2 class="mb-5 text-center">Title H2</h2>
+      
+      <div class="row my-3">
+        <div class="col-md-3 сol-12 p-2">
+          <div class="card" >
+            <div class="content__block"></div>
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 сol-12 p-2">
+          <div class="card" >
+            <div class="content__block"></div>
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 сol-12 p-2">
+          <div class="card" >
+            <div class="content__block"></div>
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+          <div class="col-md-3 сol-12 p-2">
+          <div class="card" >
+            <div class="content__block"></div>
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row my-3">
+         <div class="col-md-3 сol-12 p-2">
+          <div class="card" >
+            <div class="content__block"></div>
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+       <div class="col-md-3 сol-12 p-2">
+          <div class="card" >
+            <div class="content__block"></div>
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+     <div class="col-md-3 сol-12 p-2">
+          <div class="card" >
+            <div class="content__block"></div>
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+       <div class="col-md-3 сol-12 p-2">
+          <div class="card" >
+            <div class="content__block"></div>
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <h2 class="my-5 text-center">Title H2</h2>
+      
+      <div class="row my-3">
+      	 <div class="col-md-6 сol-12 p-2">
+	        <div class="card" >
+				 <div class="content__block"></div>
+				  <div class="card-body">
+				    <h5 class="card-title">Card title</h5>
+				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				   
+				  </div>
+				</div>
+	      </div>
+
+		<div class="col-md-6 сol-12 p-2">
+            <div class="card" >
+			 <div class="content__block"></div>
+			  <div class="card-body">
+			    <h5 class="card-title">Card title</h5>
+			    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+			
+			  </div>
+			</div>
+     	 </div>
+       </div>
+
+        <div class="row my-3">
+      	 <div class="col-md-6 сol-12 p-2">
+	        <div class="card" >
+				 <div class="content__block"></div>
+				  <div class="card-body">
+				    <h5 class="card-title">Card title</h5>
+				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				   
+				  </div>
+				</div>
+	      </div>
+
+		<div class="col-md-6 сol-12 p-2">
+            <div class="card" >
+			 <div class="content__block"></div>
+			  <div class="card-body">
+			    <h5 class="card-title">Card title</h5>
+			    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+			
+			  </div>
+			</div>
+     	 </div>
+       </div>
+
+        <h2 class="mb-5 text-center">Title H2</h2>
+		     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+			  <div class="carousel-inner">
+			    <div class="carousel-item active">
+			       <div class="content__block"></div>
+			    </div>
+			    <div class="carousel-item">
+			       <div class="content__block"></div>
+			    </div>
+			    <div class="carousel-item">
+			      <div class="content__block"></div>
+			    </div>
+			  </div>
+			  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			  <!--   <span class="visually-hidden">Previous</span> -->
+			  </a>
+			  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<!--     <span class="visually-hidden">Next</span> -->
+			  </a>
+			</div>
+
+	 <h2 class="m-5 text-center">Title H2</h2>
+	  <div class="row my-3">
+      	 <div class="col-md-3 сol-12 p-2 d-flex justify-content-center align-items-center" >
+      	 	<div class="circle"></div>
+      	 </div>
+      	 <div class="col-md-9 сol-12 p-2 ">
+      	 	 <h4 class="mb-3 ">Title H4</h4>
+      	 	 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure sint magnam earum ab ut consequatur ipsum eius quisquam maxime odit tenetur illum optio obcaecati ex, sunt praesentium possimus perspiciatis. Fugit? Lorem ipsum dolor sit amet, consectetur, adipisicing elit. At ab fuga totam dolor adipisci quasi ratione similique, quas eveniet saepe veritatis enim, recusandae ipsum, sequi deleniti praesentium natus, aliquam sed.</p>
+      	 </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="footer d-flex justify-content-center">
+      <div class="container">
+        <div class="d-flex justify-content-center align-items-center flex-column p-5">
+          <div class="footer__block">
+            <div class="footer__icon"></div>
+            <div class="footer__icon"></div>
+            <div class="footer__icon"></div>
+          </div>
+          <div class="footer__text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+</html>
