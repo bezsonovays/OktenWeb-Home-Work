@@ -522,21 +522,23 @@
 
 // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу for зібрати всі букви в слово.
 let txt = [ 'a', 'b', 'c'];
+let word = '';
 
 // for (let i = 0; i < txt.length; i++) {
-// 	console.log(txt[0] + txt[1] + txt[2]);
+// 	word += txt[i];
 // }
+// console.log(word);
 
 // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу while зібрати всі букви в слово.
 // i = 0;
 // while (i < txt.length) {
-// 	console.log(txt[0] + txt[1] + txt[2]);
+// 	word += txt[i];
 // 	i++;
 // }
-
+// console.log(word);
 
 // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу for of зібрати всі букви в слово.
 for (let i of txt) {
-	console.log(txt[0] + txt[1] + txt[2]);
+	word += i;
 }
-
+console.log(word);
