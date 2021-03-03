@@ -200,7 +200,8 @@ let users = [{
 // let zeroToEnd2 = (array) => array.sort((a, b) => ((a-b) == a) ? -1 : 1);
 // console.log(zeroToEnd2([0,1,2,3,4]))
 
-
+//sort всегда меняет исходный массив
+//***** быстрый способ скопировать массив [...array]
 
 // Створити функцію яка :
 // - Додає в боді блок з текстом "Hello owu"
@@ -353,14 +354,45 @@ let cars = [
 // или слово NO в противном случае.
 // Операцией возведения в степень пользоваться нельзя!
 
-//------------
+let test = (n, q) => Math.sqrt(n) == q ? "YES" : "NO";
+console.log(test(25, 5))
 
 // 2) Deep Copy
 // реалізувати глибоке копіювання обєкту за допомогою рекурсій
 
-//--------------
+////////////////////////////////////////////////////
+//копирование обьекта, если не используется  Dates, functions, undefined, Infinity, [NaN], RegExps, Maps, Sets, Blobs, FileLists, ImageDatas, sparse Arrays, Typed Arrays
+//JSON.parse(JSON.stringify(object)):
+///////////////////////////////////////////////
 
 
+// function deepCopy(obj) {
+//     if(typeof obj === 'object') {
+//      return Object.keys(obj)
+//       .map(k => ({ [k]: deepCopy(obj[k]) }))
+//       .reduce((a, c) => Object.assign(a, c), {});
+//     } else if(Array.isArray(obj)) {
+//      return obj.map(deepCopy)
+//     }
+//     return obj;
+//    }
+let usersss = {
+    name: 'vasya',
+    age: 31,
+    status: false,
+    address: {city: 'Lviv', country: 'Ukraine', street: 'Shevchenko', houseNumber: {a: 2, b: 3, c: [4, 5, 6]}}
+}
+
+console.log('old', usersss)
+
+function deepCopy(obj) {
+   return Object.assign(obj);
+  
+}
+
+let a = deepCopy(usersss);
+a.address.city = 'hhhhhhhh'
+console.log('new', a)
 // 3) Flat
 // Вирівняти багаторівневий масив в однорівневий
 // [1,3, ['Hello, 'Wordd', [9,6,1]], ['oops'], 9] -> [1, 3, 'Hello, 'Wordd', 9, 6, 1, 'oops', 9]
@@ -426,6 +458,8 @@ function getUserSameAge(age, array) {
     console.log(arr);
 
     return arr;
+ 
 }
 
-getUserSameAge(29, users2)
+let getUserSameAge2 = (age, array) => array.filter(el => el.age == age);
+getUserSameAge2(30, users2);

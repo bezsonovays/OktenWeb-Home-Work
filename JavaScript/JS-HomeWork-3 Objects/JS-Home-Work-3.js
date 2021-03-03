@@ -471,14 +471,14 @@
 
 //ИЛИ
 
-// let result = usersWithId.map((item, index)=> {
-//       let res;
-//       citiesWithId.forEach( (user) => {
-//           if(item.id == user.user_id){
-//                 item.address = user;
-//                 res = {...item};
-//           }
-//       })
+let result = usersWithId.map((item, index)=> {
+      let res;
+      citiesWithId.forEach( (user) => {
+          if(item.id == user.user_id){
+                item.address = user;
+                res = {...item};
+          }
+      })
 
 //       return res;
 //   })
