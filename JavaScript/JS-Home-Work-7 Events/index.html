@@ -12,7 +12,7 @@
 		background: blue;
 	}
 
-	/*.comment__body,*/
+	.comment__body,
 	#subMenu {
 		display: none;
 	}
@@ -78,10 +78,11 @@
 </div>
 <p>-----------------------------------------------------------------------------------------------------------------</p>
 	<br><br><br>
-	<div id="content"></div>
-	<h1>Правила бойцовского клуба</h1>
-	<div id="wrapJs"></div>
+	<div style="display: grid; grid-template-columns: 300px 1fr;">
+	<div id="content" ></div>
+
 	<div id="wrap">
+		<h1>Правила бойцовского клуба</h1>
 		<div class="rules rule1">
 			<h2>Первое правило Бойцовского клуба.</h2>
 			<p>Никому не рассказывать о Бойцовском клубе.</p>
@@ -115,6 +116,39 @@
 			<p>Новичок обязан принять бой.</p>
 		</div>
 	</div>
+	</div>
+<p>-----------------------------------------------------------------------------------------------------------------</p>
+<div id="wrapJs" ></div>
+
+<p>-----------------------------------------------------------------------------------------------------------------</p>
+<div id="users"></div>
+<br><br>
+<div id="checkbox">
+	<input type="checkbox" id="status" name="status"  >
+	<label for="status">False status</label>
+
+	<input type="checkbox" id="age" name="age">
+	<label for="age">over 29 years </label>
+
+	<input type="checkbox" id="city" name="city">
+	<label for="city">Kyiv city</label>
+
+	<button>Filter</button>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 	<script src="JS-HomeWork-7.js"></script>
 </body>
 </html>

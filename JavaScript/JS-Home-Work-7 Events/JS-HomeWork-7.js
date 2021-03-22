@@ -4,7 +4,7 @@
 
 let btn = document.getElementsByTagName('button');
 
-//btn[0].onclick = () => document.getElementById('text').style.display = 'none';
+btn[0].onclick = () => document.getElementById('text').style.display = 'none';
 
 //или 
 
@@ -12,15 +12,15 @@ let btn = document.getElementsByTagName('button');
 // btn[0].onclick = () => text.hidden ? text.hidden = false : text.hidden = true;
 
 // - Создайте кнопку, при клике на которую, она будет скрывать сама себя.
-// btn[0].onclick = () => btn[0].style.display = 'none';
+btn[0].onclick = () => btn[0].style.display = 'none';
 
 // - створити інпут який приймає вік людини та кнопку яка підтверджує дію.
 //При натисканні на кнопку зчитати інформацію з інпуту та перевірити вік чи меньше він ніж 18,
 // та повідомити про це користувача
 
-// let inputs = document.getElementsByTagName('input');
+let inputs = document.getElementsByTagName('input');
 
-// btn[1].onclick = () => inputs[0].value <ul 18 ? console.log('Ви неповнолітній') : console.log('Вам є 18');
+btn[1].onclick = () => inputs[0].value < 18 ? console.log('Ви неповнолітній') : console.log('Вам є 18');
 
 
 //- Создайте меню, которое раскрывается/сворачивается при клике 
@@ -28,18 +28,24 @@ let link = document.getElementById('link');
 let subMenu = document.getElementById('subMenu');
 let flag = false;
 
-link.onclick = () => {
-    if(flag) {
-        subMenu.style.display = 'none';
-        flag = false;
-    } else {
-        subMenu.style.display = 'block';
-        flag = true;
-    }
-}
+// link.onclick = () => {
+//     if(flag) {
+//         subMenu.style.display = 'none';
+//         flag = false;
+//     } else {
+//         subMenu.style.display = 'block';
+//         flag = true;
+//     }
+// }
 
-//// чому тернарка не спрацювала?
-//// link.onclick = () => flag ? (subMenu.style.display = 'none' && flag = false) : (subMenu.style.display = 'block' && flag = true); 
+//ИЛИ
+ link.onclick = () => {
+     flag
+         ? subMenu.style.display = 'none'
+         : subMenu.style.display = 'block';
+
+     flag=!flag
+ }
 
 // - Создать список комментариев , пример объекта коментария - {title : 'lorem', body:'lorem ipsum dolo sit ameti'}.
 // Вывести список комментариев в документ, каждый в своем блоке.
@@ -57,7 +63,7 @@ let template = `<div class="comment">`;
 
     comments.forEach((el, index) => {
     template += `<div class="comment__title"><strong>${el.title}</strong></div>
-                 <button class="comment__btn" data-btn="${index}">hide</button>
+                 <button class="comment__btn" data-btn="${index}">open</button>
                  <div class="comment__body" data-body="${index}">${el.body}</div>`
              }) 
 
@@ -69,49 +75,23 @@ document.getElementById('comments').innerHTML = template;
 let commentBtn = document.querySelectorAll('.comment__btn');
 let commentBody = document.querySelectorAll('.comment__body');
 
-commentBtn.forEach(btn => {
-    btn.onclick = () => {
-        commentBody.forEach(body => {
-            if (btn.dataset.btn == body.dataset.body && !body.hidden ) {
-                body.hidden = true;
-            } else {
-                body.hidden = false;
-            }
-    
-        })
-    }
-})
-
-// let flag = false;
-
 // commentBtn.forEach(btn => {
 //     btn.onclick = () => {
 //         commentBody.forEach(body => {
-//             if(btn.dataset.btn == body.dataset.body && !flag) {
-//                 body.style.display = 'block';
-//                 btn.innerText  = 'close'
-//                 flag = true;
-//                 console.log('active - ' , btn.dataset.btn, body.dataset.body, flag, btn.innerText)
-
+//             if (btn.dataset.btn == body.dataset.body && !body.hidden ) {
+//                 body.hidden = true;
 //             } else {
-//                 body.style.display = 'none';
-             
-//                 flag = false;
-//                 console.log('else - ' , btn.dataset.btn, body.dataset.body, flag, btn.innerText)
-//              }
-
-//             //  if (btn.dataset.btn == body.dataset.body && flag && btn.innerText  == 'close') {
-//             //               btn.innerText  = 'open';
-//             //              // body.style.display = 'none';
-//             //               flag = false;
-//             // }
-          
+//                 body.hidden = false;
+//             }
+//
 //         })
-//         console.log('*****************************************************************')
-//         }
-      
-//     })
+//     }
+// })
 
+//ИЛИ
+commentBtn.forEach(el => {
+    el.onclick = () => commentBody.forEach(item => el.dataset.btn == item.dataset.body && item.classList.toggle('active'));
+        })
 
 
 // - створити 2 форми  по 2 інпути в кожній. ствоирити кнопку при кліку на яку считується та виводиться на консоль інформація з цих 2х форм.
@@ -144,13 +124,14 @@ function createTable (tr, td, element, tdText) {
     let trTable = document.createElement('tr');
         for( let j = 0; j < td; j++) {
             let tdTable = document.createElement('td');
+            tdTable.style.cssText = "padding: 5px; border: 1px solid grey";
             trTable.appendChild(tdTable);
             tdTable.innerText =  tdText;
         }
      table.appendChild(trTable);
    }
    el.appendChild(table);
-   console.log(el)
+   document.getElementsByClassName('table')[0].appendChild(el);
  }
 
  tableBtn.onclick = () => {
@@ -158,7 +139,57 @@ function createTable (tr, td, element, tdText) {
  }
 
 // - Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
+let imgArr = [
+    {
+        id: 1,
+        url: './img/1.jpg',
+    },
+    {
+        id: 2,
+        url: './img/2.jpg',
+    },
+    {
+        id: 3,
+        url: './img/3.jpg',
+    },
+    {
+        id: 4,
+        url: './img/4.jpg',
+    },
+    {
+        id: 5,
+        url: './img/5.jpg',
+    },
+    {
+        id: 6,
+        url: './img/6.jpg',
+    },
+]
 
+const contentBlock = document.getElementById('wrapJs');
+const img = document.createElement('img');
+const btnLeft = document.createElement('button');
+const btnRight = document.createElement('button');
+
+btnLeft.innerText = 'Left';
+btnRight.innerText = 'Right';
+
+let index = 0;
+img.src = imgArr[index].url;
+
+contentBlock.appendChild(img);
+contentBlock.appendChild(btnLeft);
+contentBlock.appendChild(btnRight);
+
+btnLeft.onclick = () => {
+    index - 1 < 0 ? index = imgArr.length - 1 : index -= 1;
+    img.src = imgArr[index].url;
+}
+
+btnRight.onclick = () => {
+    index + 1 < imgArr.length - 1 ? index += 1 : index = 0;
+    img.src = imgArr[index].url;
+}
 
 // ***- Сворити масив не цензцрних слів.
 // Сворити інпут текстового типу.
@@ -166,16 +197,17 @@ function createTable (tr, td, element, tdText) {
 // кинути алерт з попередженням.
 // Перевірку робити при натисканні на кнопку
 
-// let arr = ['бляха', 'Говнюк', 'сучка', 'жопа', 'курва'];
-// let wordsBtn = document.getElementsByClassName('words');
-// let input = document.querySelector('input[name="words"]');
+let arr = ['бляха', 'Говнюк', 'сучка', 'жопа', 'курва'];
+let wordsBtn = document.getElementsByClassName('words');
+let input = document.querySelector('input[name="words"]');
 
-// wordsBtn[0].onclick = () => {
-//     arr.forEach(el =>  input.value.toLowerCase().indexOf(el) !== -1 && alert('Stop! нецензурна лексика'))
-// }
+wordsBtn[0].onclick = () => {
+    arr.forEach(el =>  input.value.toLowerCase().indexOf(el) !== -1 && alert('Stop! нецензурна лексика'))
+}
 
 
-//-- создать скрипт, который берет считывает на странице (rules.html) текст и делает сбоку меню-оглавление по всем заголовкам которые есть в тексте.
+//-- создать скрипт, который берет считывает на странице (rules.html) текст и делает сбоку меню-оглавление по всем
+// заголовкам которые есть в тексте.
 //При клике на пункт оглавления вы должны отправляться к этому пункту в тексте
 
 let content = document.getElementById('content');
@@ -196,7 +228,50 @@ content.innerHTML = list;
 // 3й - оставляет тех у кого город киев
 // Данные выводить в документ
 
+let usersWithAddress = [
+    {id: 1, name: 'vasya', age: 31, status: false, address: {city: 'Lviv', street: 'assfg', number: 16}},
+    {id: 2, name: 'petya', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 1}}, 
+    {id: 3, name: 'kolya', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 121}},
+    {id: 4, name: 'olya', age: 28, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 90}},
+    {id: 5, name: 'max', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 115}},
+    {id: 6, name: 'anya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 2}},
+    {id: 7, name: 'oleg', age: 28, status: false, address: {city: 'Kiev', street: 'Shevchenko', number: 22}},
+    {id: 8, name: 'andrey', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 43}},
+    {id: 9, name: 'masha', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 12}},
+    {id: 10, name: 'olya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
+    {id: 11, name: 'max', age: 30, status: true, address: {city: 'Kiev', street: 'Shevchenko', number: 121}}
+];
 
+const usersBlock = document.getElementById('users');
+const statusFilter = document.querySelector('#status');
+const statusAge = document.querySelector('#age');
+const statusCity = document.querySelector('#city');
+let btnFilter = document.querySelector('#checkbox button')
+
+renderContent(usersWithAddress);
+
+function renderContent(array) {
+    let template = '';
+    array.forEach (el => template += `
+        <div style="display: flex;">
+            <p><span>${el.id}</span> <strong>${el.name}</strong></p>
+            <p> - ${el.age} years old</p>
+            <p> - ${el.status} status</p>
+            <p> - ${el.address.city}, ${el.address.street} ${el.address.number} </p>
+        </div>
+    <hr>
+  `);
+    usersBlock.innerHTML = template;
+    }
+
+btnFilter.onclick = () => {
+        filterArr = JSON.parse(JSON.stringify(usersWithAddress));
+        if(statusFilter.checked)  filterArr = filterArr.filter (el =>  !el.status);
+        if(statusAge.checked) filterArr = filterArr.filter (el =>   el.age >= 29);
+        if(statusCity.checked)  filterArr = filterArr.filter (el => el.address.city == 'Kiev');
+        template = ``;
+        renderContent(filterArr);
+    }
 
 // *****(Прям овердоз с рекурсией) Создать функцию которая принимает какой-либо элемент DOM-структуры .Функция создает в боди 2 кнопки (назад/вперед)
 // при нажатии вперед, вы переходите к дочернему элементу, при еще одном нажатии на "вперед", вы переходите к следующему дочернему элементу (лежащему на одном уровне)

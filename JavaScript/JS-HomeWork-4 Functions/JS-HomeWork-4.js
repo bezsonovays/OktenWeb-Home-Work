@@ -365,7 +365,7 @@ console.log(test(25, 5))
 //JSON.parse(JSON.stringify(object)):
 ///////////////////////////////////////////////
 
-
+// c интернета
 // function deepCopy(obj) {
 //     if(typeof obj === 'object') {
 //      return Object.keys(obj)
@@ -376,23 +376,20 @@ console.log(test(25, 5))
 //     }
 //     return obj;
 //    }
-let usersss = {
-    name: 'vasya',
-    age: 31,
-    status: false,
-    address: {city: 'Lviv', country: 'Ukraine', street: 'Shevchenko', houseNumber: {a: 2, b: 3, c: [4, 5, 6]}}
+
+function DeepCopy(obj) {
+    let emptyObject = (obj instanceof Array ? [] : {});
+    for (let i in obj) {
+        if (obj[i] != null && typeof(obj[i]) == 'object') {
+            emptyObject[i] = DeepCopy(obj[i]);
+        } else {
+            emptyObject[i] = obj[i];
+        }
+    }
+    return emptyObject;
 }
+DeepCopy (cars)
 
-console.log('old', usersss)
-
-function deepCopy(obj) {
-   return Object.assign(obj);
-  
-}
-
-let a = deepCopy(usersss);
-a.address.city = 'hhhhhhhh'
-console.log('new', a)
 // 3) Flat
 // Вирівняти багаторівневий масив в однорівневий
 // [1,3, ['Hello, 'Wordd', [9,6,1]], ['oops'], 9] -> [1, 3, 'Hello, 'Wordd', 9, 6, 1, 'oops', 9]
