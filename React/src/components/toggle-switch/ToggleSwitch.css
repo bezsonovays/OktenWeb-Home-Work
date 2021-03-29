@@ -1,0 +1,59 @@
+.card__switch input {
+    background-image: none;
+    border-width: 0;
+    border-radius: 0.4375rem;
+    width: 2.25rem;
+    height: 0.875rem;
+    background-color: rgba(0, 0, 0, 0.38);
+    margin: 0.3em 0 0 10px;
+    background-position: 0;
+    transition: background-position 0.15s ease-in-out;
+    position: relative;
+    border: 0.125rem solid #949494;
+    background-size: contain;
+    vertical-align: top;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    appearance: none;
+    -webkit-print-color-adjust: exact;
+}
+.card__switch input:focus {
+    outline: none;
+}
+
+.card__switch input::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: -3px;
+    border: none;
+    z-index: 2;
+    border-radius: 50%;
+    width: 1.25rem;
+    height: 1.25rem;
+    background-color: #fff;
+    margin-top: -0.1875rem;
+    box-shadow: 0 3px 1px -2px rgb(0 0 0 / 30%), 0 2px 2px 0 rgb(0 0 0 / 25%), 0 1px 5px 0 rgb(0 0 0 / 20%);
+    transition: background-color 0.2s, transform 0.2s;
+    box-sizing: border-box;
+}
+
+.card__switch {
+    padding: 20px;
+}
+
+.card__switch input:checked {
+    background-color: #ffd700;
+    border: 0.125rem solid #ffd700;
+}
+
+.card__switch input:checked::after {
+    display: block;
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    right: -2px;
+    background-color: #ffd700;
+    margin-top: -3px;
+    margin-left: 1.0625rem;
+}
