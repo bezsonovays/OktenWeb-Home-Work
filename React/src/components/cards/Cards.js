@@ -6,31 +6,29 @@ import ButtonDelete from '../button-delete/ButtonDelete';
 import '../toggle-switch/ToggleSwitch.css'
 
 export function Cards() {
-    const [data, setCars] = useState();
-    const [itemToHide, setItemToHide] = useState([]);
 
-    const filterArr = cars.filter(el => !itemToHide.includes(el.id));
-
-    const handleArrChange = (el) => {
-        console.log(el.id)
-        setItemToHide([...itemToHide, el.id]);
-    }
-
-   const onRevert = () => {
-        setItemToHide([])
-    }
-
+    const [data, setCars] = useState(cars);
     const [isOk, setIsOk] = useState(false);
 
-    
+    const handleArrChange = ({id}) => {
+        setCars(prevState => {
+            return prevState.filter(item => item.id !== id)
+        })
+    }
+
+    const onRevert = () => {
+        setCars(cars)
+    }
 
     const handleChangeTheme = (event) => {
-            let car = filterArr[event.target.dataset.id];
+        setCars(prevState => {
+            const newState = prevState.map(a=>({...a}))
+            let car = newState[event.target.dataset.id];
             car.checked = !car.checked;
-
-          setCars(filterArr)
+            return newState;
+        })
     }
-       
+
     return (
         <div className="flex-center">
             <h2 onClick={() => setIsOk(!isOk)}>{isOk ? 'true' : 'false'}</h2>
@@ -38,25 +36,27 @@ export function Cards() {
             <button onClick={onRevert} className="revert">Revert</button>
 
             <div className="cards">
-                {filterArr.map((card, index) => {
-                    console.log(card.checked)
-                    return (
-                        <div key={card.id}  className={ card.checked ? "card darkTheme" : "card"}>
-                            <Card car={card}></Card>
-                            <div onClick={() => handleArrChange(card)} className="card__button">
-                                <ButtonDelete></ButtonDelete>
-                            </div>
-                            <div className="card__switch" >
-                                <label>
-                                    <span>Change card's theme</span>
-                                    <input type="checkbox" data-id={index} onChange={handleChangeTheme}></input>
-                                </label>
-                            </div>
-                        </div>)
-                })}
+                {
+                    data.map((card, index) => {
+                        console.log(card.checked)
+                        return (
+                            <div key={card.id} className={card.checked ? "card darkTheme" : "card"}>
+                                <Card car={card}/>
+                                <ButtonDelete
+                                    onClick={() => handleArrChange(card)}
+                                />
+                                <div className="card__switch">
+                                    <label>
+                                        <span>Change card's theme</span>
+                                        <input type="checkbox" data-id={index} onChange={handleChangeTheme}/>
+                                    </label>
+                                </div>
+                            </div>)
+                    })
+                }
             </div>
         </div>
     );
-}  
+}
 
 export default Cards;
