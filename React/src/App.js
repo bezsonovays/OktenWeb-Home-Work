@@ -97,7 +97,7 @@ import Cards from "./components/cards/Cards";
 export function App() {
     return (
         <div className="container">
-            <Cards></Cards>
+            <Cards/>
         </div>
     )
 
