@@ -11,23 +11,24 @@ export function App() {
 
     const urlBuilder = `https://jsonplaceholder.typicode.com/${tabs[selectedTab].title}`
 
-    const gethData = async () => {
+    const getData = async () => {
         const data = await fetch(urlBuilder).then(res => res.json());
         setContent(data)
     }
 
     useEffect (() => {
-        gethData();
+        getData();
     }, [selectedTab])
 
-
+        // добавив би спінер поки грузиться
     return (
-     
+
             <div className="container">
+
                 <Tabs tabs={tabs} handler={setSelectedTab} activeTab={selectedTab}/>
-                <TabContent  data={content} tabs={tabs} indexTab={selectedTab}></TabContent>
+                <TabContent  data={content} tabs={tabs} indexTab={selectedTab}/>
             </div>
-     
+
     )
 
 }

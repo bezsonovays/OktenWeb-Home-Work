@@ -6,5 +6,3 @@ export const tabs = [
     {title: "todos", arguments: ['id','title', 'completed']},
     {title: "users", arguments: ['id','name', 'username', 'email']},
 ]
-
-export default tabs;
