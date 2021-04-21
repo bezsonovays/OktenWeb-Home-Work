@@ -1,103 +1,171 @@
 
 import './App.css';
-import React from "react";
-import Cards from "./components/cards/Cards";
+import React, { useState } from "react";
 
-//1.  відмалювати список карточок базуючись на якомусь створеному вами масиві
-// створити окрему кнопку, яка буде видаляти поточний перший елемент (або останній)
-// якщо у нас масив з 3 елементів і ми клікнули на кнопку 3 рази,
-// то на екрані жодна карточка не має відмалюватись
-// (кнопки повернення до початкового стану не треба)
-
-// export function App() {
-//     const [arr, changeArr] = useState(cars);
-//     // const removeFirst = () => {
-//     //     const newArr = [...arr];
-//     //     newArr.shift();
-//     //     changeArr(newArr);
-//     // };
-//     // const removeLast = () => {
-//     //     const newArr = [...arr];
-//     //     newArr.pop();
-//     //     changeArr(newArr);
-//     // }
-//
-//     //itemToRemove is 'last' of 'first'
-//     const handleArrChange = (itemToRemove) => {
-//         if (itemToRemove !== 'first' && itemToRemove !== 'last') return;
-//         const newArr = [...arr];
-//         itemToRemove === 'first' && newArr.shift();
-//         itemToRemove === 'last' && newArr.pop();
-//
-//         //або
-//         // itemToRemove === 'first' ? newArr.shift() : newArr.pop();
-//
-//         //aбо
-//         // const newArr = arr.slice('first' ? 0 : arr.length,  'first' ? 1 : arr.length - 1);
-//
-//         changeArr(newArr);
-//     }
-//
-//     return (
-//         <div className={App}>
-//             <h2>TEST</h2>
-//             {/*<button onClick={removeFirst}>Delete first</button>*/}
-//             {/*<button onClick={removeLast}>Delete last</button>*/}
-//
-//             <button onClick={() => {
-//                 handleArrChange('first')
-//             }}>Delete first
-//             </button>
-//             <button onClick={() => {
-//                 handleArrChange('last')
-//             }}>Delete last
-//             </button>
-//
-//             {arr.map(el => <li key={el.id}>{el.title}</li>)}
-//         </div>
-//     )
-// }
-
-//2. те саме, тільки з кнопкою реверт (повернутись до стану, де у нас видно 3 елемнети, як на початку)
-// export function App() {
-//    const [itemToHide, setItemToHide] = useState([]);
-//    const filterArr = cars.filter(el => !itemToHide.includes(el.id));
-//
-//    const handleArrChange = () => {
-//         const itemToRemove = filterArr[0];
-//
-//         if(!itemToRemove) return;
-//         console.log(itemToRemove);
-//
-//         setItemToHide([...itemToHide, itemToRemove.id])
-//     }
-//
-//     const onRevert = () => {
-//         setItemToHide([])
-//      }
-//
-//     return (
-//           <div className={App}>
-//                <h2>TEST</h2>
-//                <button onClick={handleArrChange}>Delete</button>
-//                <button onClick={onRevert}>Revert</button>
-//                {filterArr.map(el => <li key={el.id}>{el.title}</li>)}
-//           </div>
-//     );
-//}
-
-
-//3. задача з зірочкою)
-// кожна карточка з завдання вище має мати кнопку,
-// по кліку на яку, ми видаляємо зі списку саме її
-// + реверт кнопка, щоб вернути все назад
-// (ця кнопка одна дня всіх карточок, клікнули по ній і всі каркти вернулись назазд)
-// (згадування функції фільтр в лекції було не просто так)
+// create controlled and uncontrolled select component
+// create controlled and uncontrolled checkbox
+// create controlled and uncontrolled radio
 
 export function App() {
+
+    ////////////////////
+    //UNCONTROLLED INPUTS
+    ///////////////////
+
+    //3 СПОСІБ через ref
+    const firstName = React.useRef();
+    const age = React.useRef();
+    const select = React.useRef();
+    const checkbox = React.useRef();
+    const radio1= React.useRef();
+    const radio2= React.useRef();
+    const form = React.useRef();
+
+
+   const clickHandler = (e) => {
+         e.preventDefault();
+         console.log(e);
+
+        //1 СПОСІБ - e.target.value
+        // const {target: [
+        //     {value: firstName},
+        //     {value: age},
+        //     {value: select},
+        //     {checked: checkbox},
+        //     {checked: radioButton1},
+        //     {checked: radioButton2}
+        // ]} = e;
+
+        //  console.log(firstName, age, select, checkbox, radioButton1, radioButton2)
+
+        //2 СПОСІБ - доступ до input через name = деструктизація e.target.elements
+        //      const {target: {
+        //         firstName,
+        //         age,
+        //         select,
+        //         checkbox,
+        //         radio1,
+        //         radio2
+        //      }
+        // } = e;
+        //      console.log(e.target.elements)
+        //      console.log(firstName.value, age.value, select.value, checkbox.checked, radio1.checked, radio2.checked)
+
+
+        //3 СПОСІБ через ref
+        console.log(firstName.current.value, age.current.value, select.current.value, checkbox.current.checked, radio1.current.checked, radio2.current.checked)
+        form.current.reset(); //очищення форми
+    }
+
+    ////////////////////
+    //CONTROLLED INPUTS
+    ///////////////////
+
+    const [userData, setuserData] = useState({
+        firstNameControl: '',
+        ageControl: '',
+        selectControl: '',
+        checkboxControl: false,
+        radio: 'ВКЛ'
+    })
+      const handleSubmit = () => {
+            alert(JSON.stringify(userData, null, 2))
+      }
+
+      const updateUserData = (e) => {
+        const {target: {value, id, type, checked}} = e;
+        console.log(id, value, checked);
+        if (type === 'checkbox') {
+          setuserData({ ...userData, checkboxControl: value})
+        }
+        if (type === 'radio') {
+          setuserData({ ...userData, radio: value})
+        }
+}
+
     return (
-        <div className="container">
-            <Cards/>
+        <div style={{display: 'flex', maxWidth: '600px', margin: '0 auto'}}>
+            <div style={{width: '300px'}}>
+
+                <h2 >uncontrolled inputs</h2>
+                <form ref={form} onSubmit={clickHandler}>
+                    <br/>
+                    <input ref={firstName} type="text" name="firstName" placeholder="enter your first name"/> <br/><br/>
+                    <input ref={age} type="number" name="age" placeholder="enter your age"  /><br/> <br/>
+                    <select ref={select} name="select">
+                        <option value="t1" selected>1</option>
+                        <option value="t2">2 </option>
+                        <option value="t3">3</option>
+                    </select> <br/><br/>
+                    <input ref={checkbox} type="checkbox"  name="checkbox"/>
+                    <label htmlFor="checkbox"> false</label>
+                        <br/>
+                    <input ref={radio1} type="radio" name="radioButton" id="radio1" checked/>
+                    <label htmlFor="radioButton"> ВКЛ</label>
+                    <input ref={radio2} type="radio" name="radioButton" id="radio2" />
+                    <label htmlFor="radioButton"> ВЫКЛ</label>
+                    <br/><br/>
+                    <button type="submit" name="submit">OK</button>
+
+                </form>
+            </div>
+
+            <div style={{width: '300px'}}>
+            <h2 >controlled inputs</h2>
+             <br/>
+                <input
+                    value={userData.firstName}
+                    onChange={updateUserData}
+                    id="firstNameControl"
+                    type="text"
+                    placeholder="enter your first name"/> <br/><br/>
+
+                <input
+                    value={userData.age}
+                    onChange={updateUserData}
+                    id="ageControl"
+                    type="number"
+                    placeholder="enter your age"  /><br/> <br/>
+
+                <select
+                    value={userData.select}
+                    onChange={updateUserData}
+                    id="selectControl">
+                        <option value="t1" selected>1</option>
+                        <option value="t2">2 </option>
+                        <option value="t3">3</option>
+                </select> <br/><br/>
+
+                <input
+                    value={userData.checkbox}
+                    onChange={updateUserData}
+                    type="checkbox"
+                    id="checkboxControl"/>
+                        <label htmlFor="checkbox"> false</label>
+                <br/>
+
+                <input
+                    value='ВКЛ'
+                    onChange={updateUserData}
+                    type="radio"
+                    name="radioButtonControl"
+                    checked={userData.radio === 'ВКЛ'}
+                />
+                <label htmlFor="radioButtonControl"> ВКЛ</label>
+
+                <input
+                    value='ВЫКЛ'
+                    onChange={updateUserData}
+                    type="radio"
+                    name="radioButtonControl"
+                    checked={userData.radio === 'ВЫКЛ'}
+                />
+                <label htmlFor="radioButtonControl"> ВЫКЛ</label>
+
+                <br/><br/>
+                <button onClick={handleSubmit}>OK</button>
+
+            </div>
         </div>
     )
 
