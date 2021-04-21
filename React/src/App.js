@@ -39,7 +39,7 @@ export function App() {
         //  console.log(firstName, age, select, checkbox, radioButton1, radioButton2)
 
         //2 СПОСІБ - доступ до input через name = деструктизація e.target.elements
-        //      const {target: { 
+        //      const {target: {
         //         firstName,
         //         age,
         //         select,
@@ -48,15 +48,15 @@ export function App() {
         //         radio2
         //      }
         // } = e;
-        //      console.log(e.target.elements) 
+        //      console.log(e.target.elements)
         //      console.log(firstName.value, age.value, select.value, checkbox.checked, radio1.checked, radio2.checked)
-       
+
 
         //3 СПОСІБ через ref
         console.log(firstName.current.value, age.current.value, select.current.value, checkbox.current.checked, radio1.current.checked, radio2.current.checked)
         form.current.reset(); //очищення форми
     }
-    
+
     ////////////////////
     //CONTROLLED INPUTS
     ///////////////////
@@ -66,8 +66,7 @@ export function App() {
         ageControl: '',
         selectControl: '',
         checkboxControl: false,
-        radio1: true,
-        radio2: false,
+        radio: 'ВКЛ'
     })
       const handleSubmit = () => {
             alert(JSON.stringify(userData, null, 2))
@@ -76,7 +75,12 @@ export function App() {
       const updateUserData = (e) => {
         const {target: {value, id, type, checked}} = e;
         console.log(id, value, checked);
-        setuserData({ ...userData, [id]: (type === 'checkbox' || type === 'radio') ? checked : value})
+        if (type === 'checkbox') {
+          setuserData({ ...userData, checkboxControl: value})
+        }
+        if (type === 'radio') {
+          setuserData({ ...userData, radio: value})
+        }
 }
 
     return (
@@ -109,21 +113,21 @@ export function App() {
             <div style={{width: '300px'}}>
             <h2 >controlled inputs</h2>
              <br/>
-                <input 
+                <input
                     value={userData.firstName}
                     onChange={updateUserData}
                     id="firstNameControl"
                     type="text"
                     placeholder="enter your first name"/> <br/><br/>
 
-                <input 
+                <input
                     value={userData.age}
                     onChange={updateUserData}
                     id="ageControl"
-                    type="number" 
+                    type="number"
                     placeholder="enter your age"  /><br/> <br/>
 
-                <select  
+                <select
                     value={userData.select}
                     onChange={updateUserData}
                     id="selectControl">
@@ -132,7 +136,7 @@ export function App() {
                         <option value="t3">3</option>
                 </select> <br/><br/>
 
-                <input  
+                <input
                     value={userData.checkbox}
                     onChange={updateUserData}
                     type="checkbox"
@@ -141,22 +145,23 @@ export function App() {
                 <br/>
 
                 <input
-                    value={userData.radio1}
+                    value='ВКЛ'
                     onChange={updateUserData}
                     type="radio"
                     name="radioButtonControl"
-                    id="radio1"
-                    checked/>
-                        <label htmlFor="radioButtonControl"> ВКЛ</label>
+                    checked={userData.radio === 'ВКЛ'}
+                />
+                <label htmlFor="radioButtonControl"> ВКЛ</label>
 
-                <input 
-                    value={userData.radio2}
+                <input
+                    value='ВЫКЛ'
                     onChange={updateUserData}
                     type="radio"
                     name="radioButtonControl"
-                    id="radio2" />
-                        <label htmlFor="radioButtonControl"> ВЫКЛ</label>
-                 
+                    checked={userData.radio === 'ВЫКЛ'}
+                />
+                <label htmlFor="radioButtonControl"> ВЫКЛ</label>
+
                 <br/><br/>
                 <button onClick={handleSubmit}>OK</button>
 
