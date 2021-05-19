@@ -1,0 +1,226 @@
+<style type="text/css">@font-face {
+    font-family: "TUI-reg";
+    src: url("/getmedia/eed76bc2-3e73-4a18-9349-beb9fc5bea39/hinted-TUITypeCyrillic-Bold") format("truetype");
+    src: url("/getmedia/154d56a7-a729-46b4-b10c-5b5870bc6a3c/hinted-TUITypeCyrillicLight-Bold") format("truetype");
+    src: url("/getmedia/e7bbea8d-7099-4e16-98f8-fa372859ef7e/hinted-TUITypeCyrillicLight-Regular") format("truetype");
+    src: url("/getmedia/fddf842f-4035-486b-ac90-a79fbcdf174b/hinted-TUITypeCyrillic-Regular") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+.row-all *{
+        font-family: "TUI-reg";
+        line-height: 1.2;
+    }
+
+p, ul li, ol li {
+    margin-bottom: 10px;
+}
+.row-all {
+    margin: 40px 10px;
+    font-size: 20px;
+}
+
+.header__title {
+    font-weight: bold;
+    font-size: 1.5em;
+    text-align: center;
+}
+.text {
+    margin: 20px 0;
+}
+
+/**********TABs***************/
+.css-tabs [data-tab] {
+  display: none;
+}
+.css-tabs :checked + .css-tab__label {
+    /* text-decoration: underline; */
+        font-weight: 600;
+    }
+/* .css-tabs .css-tab__label:hover {
+  background: #ccc;
+} */
+.css-tabs #tab1:checked ~ [data-tab="1"],
+.css-tabs #tab2:checked ~ [data-tab="2"] {
+  display: block;
+  animation: tabOpen 0.3s ease forwards;
+}
+
+.css-tab__input {
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.css-tab__label {
+  margin-right: 5px;
+  padding: 10px 20px;
+  margin-bottom: 5px;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 400;
+  color: #092a5e;
+}
+.css-tab__content {
+  padding: 15px;
+
+}
+
+@keyframes tabOpen {
+  from {
+    opacity: 0;
+    transform: traslateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: traslateY(0);
+  }
+}
+
+/**********TABs END***********/
+.trip {
+  border-bottom: 1px #ececec solid; 
+  border-top: 1px #ececec solid; 
+  margin: 10px 0;
+  padding: 20px 0;
+  text-align: center;
+ 
+}
+.trip__btn  {
+    padding: 30px 0;
+}
+
+.trip__btn a {
+    background-color: #d40e14;
+    color: #fff;
+    padding: 12px 40px;
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 6px;
+    line-height: 1;
+}
+
+.trip__title {
+    text-align: center;
+    font-weight: 600;
+    margin: 50px 0 0 15px;
+    color: #092a5e;
+}
+
+.img__tiles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    margin: 50px 0;
+}
+
+.img__tiles img {
+    width: 100%;
+    border-radius: 4px;
+}
+</style>
+<div class="row-all">
+    <div class="header">
+        <div class="header__title">РЕКЛАМНІ ТУРИ НОВОГО ФОРМАТУ: ВІДЧУЙ РІЗНИЦЮ САМ</div>
+    </div>
+
+    <div class="text">
+        <p>Новий формат рекламного туру, де ви самі зможете відчути усі переваги концепцій TUI та зрозуміти, чому готелі <strong>FUN&SUN</strong> – це унікальний продукт, який легко пропонувати та складно їм знайти альтернативу.</p>
+        <p>Ми гадаємо, що найкращий спосіб вивчити концепцію чи готель – це спробувати самому. </p>  <br>
+        <p><strong>Спеціальні тури для агентів</strong> з проживанням лише в одному готелі з метою вивчення концепцій за новою методикою, коли агент може відчути себе на місці туриста та побачити, як працює концепція зсередини. Ми розповімо вам усі фішки концепцій у реальному часі та на прикладі конкретного готелю. </p>
+    </div>
+
+    <div class="css-tabs">
+        <input type="radio"  id="tab1" class="css-tab__input" name="tab" checked>
+          <label for="tab1" class="css-tab__label" style="margin-left: 30px;">
+            <span class="css-tab__title">FAM TRIP FUN&SUN FAMILY Sunrise Aqua 4* </span>
+          </label>
+      
+        <input type="radio" id="tab2" class="css-tab__input" name="tab">
+          <label for="tab2" class="css-tab__label">
+               <span class="css-tab__title">FAM TRIP FUN&SUN FAMILY Seagate Aqua 5*</span>
+          </label>
+      
+        <div class="css-tab__content" data-tab="1">
+            <div class="trip">
+                <div class="trip__night">7 ночей з Києва</div>
+                <div class="trip__data">21.05.2021 – 28.05.2021</div>
+                <div class="trip__btn">
+                    <a href="https://b2b.tui.ua/search_tour?TOWNFROMINC=235144&STATEINC=18498&TOURINC=2856&CHECKIN_BEG=20210521&NIGHTS_FROM=7&CHECKIN_END=20210521&NIGHTS_TILL=7&ADULT=1&CURRENCY=4&CHILD=0&TOWNS_ANY=1&STARS_ANY=1&HOTELS_ANY=1&MEALS_ANY=1&ROOMS_ANY=1&FREIGHT=1&FILTER=1&PRICEPAGE=1&DOLOAD=1" target="_blank">Забронювати</a>
+                </div>
+            </div>
+
+            <div class="trip">
+                <div class="trip__night">7 ночей зі Львова</div>
+                <div class="trip__data">21.05.2021 – 28.05.2021</div>
+                <div class="trip__btn">
+                    <a href="https://b2b.tui.ua/search_tour?TOWNFROMINC=212497&STATEINC=18498&TOURINC=2857&CHECKIN_BEG=20210521&NIGHTS_FROM=7&CHECKIN_END=20210521&NIGHTS_TILL=7&ADULT=1&CURRENCY=4&CHILD=0&TOWNS_ANY=1&STARS_ANY=1&HOTELS_ANY=1&MEALS_ANY=1&ROOMS_ANY=1&FREIGHT=1&FILTER=1&PRICEPAGE=1&DOLOAD=1" target="_blank">Забронювати</a>
+                </div>
+            </div>
+        
+        </div>
+        <div class="css-tab__content" data-tab="2">
+            <div class="trip">
+                <div class="trip__night">3 ночі з Києва</div>
+                <div class="trip__data">20.05.2021 – 23.05.2021</div>
+                <div class="trip__btn">
+                    <a href="https://b2b.tui.ua/search_tour?TOWNFROMINC=235144&STATEINC=18498&TOURINC=2866&CHECKIN_BEG=20210520&NIGHTS_FROM=3&CHECKIN_END=20210520&NIGHTS_TILL=3&ADULT=1&CURRENCY=4&CHILD=0&HOTELS=215222&MEALS_ANY=1&ROOMS_ANY=1&FREIGHT=1&FILTER=1&PRICEPAGE=1&DOLOAD=1" target="_blank">Забронювати</a>
+                </div>
+            </div>
+        </div>
+       
+      </div>
+      <div class="text">
+          <p><strong>Спеціальні тури для агентів з дітьми.</strong> Ми пропонуємо вашим дітям самим вирішити чи варто обрати готель з концепцією FUN&SUN FAMILY та дитячий клуб TOUCAN поки ви будете вивчати концепції та готелі. Ніяких переглядів готельної бази, лише відпочинок у кількох готелях з концепцією, щоб порівняти та обрати найулюбленіший. </p>
+      </div>
+      <div class="trip__title">FAM TRIP Toucan 5*</div>
+      <div class="trip">
+        <div class="trip__night">7 ночей з Києва</div>
+        <div class="trip__data">30.05.2021 – 06.06.2021</div>
+        <div class="trip__btn">
+            <a href="https://b2b.tui.ua/search_tour?TOWNFROMINC=235144&STATEINC=18803&TOURINC=10191&CHECKIN_BEG=20210530&NIGHTS_FROM=7&CHECKIN_END=20210530&NIGHTS_TILL=7&ADULT=1&CURRENCY=4&CHILD=1&HOTELS=787750&MEALS_ANY=1&ROOMS_ANY=1&FREIGHT=1&FILTER=1&AGES=8&PRICEPAGE=1&DOLOAD=1" target="_blank">Забронювати</a>
+        </div>
+    </div>
+    <div class="text">
+        <p><strong>ВАЖЛИВО!</strong> Обов’язкова умова для підтвердження участі в турі: публікації готелю впродовж поїздки у соціальних мережах, профільних групах в інтернеті або на сайтах відгуків готелів.</p>
+        <p><strong>В березні 2021 року ми вже спробували новий формат туру для агентів з дітьми. Раді поділитись з вами спогадами.</strong></p>
+    </div>
+
+    <div class="img__tiles">
+        <img src="/getmedia/91894754-2cc1-4e69-bd27-3dd0d7cba3d3/1" >
+        <img src="/getmedia/0acc634c-d28c-42b9-8cf2-c4d2fad35f63/2" >
+        <img src="/getmedia/fdde1fef-8f18-4f93-b411-54bdd32b225d/3" >
+        <img src="/getmedia/c337622b-28c0-45fe-8475-863b6c8af024/4" >
+        <img src="/getmedia/eb3187af-a9cb-4f0c-97bc-484b5aa1f0e7/5" >
+        <img src="/getmedia/80c529a5-c8fb-4591-9fa1-c9b6a43f8d4b/6" >
+        <img src="/getmedia/227a09c1-da47-441d-93c5-5f2d5f61fe19/7" >
+        <img src="/getmedia/91409ccb-f099-41e3-a709-21439d211388/8" >
+        <img src="/getmedia/7a36ed0a-4e56-4eed-a5cb-846cef93c4ca/9" >
+        <img src="/getmedia/f485313c-5133-4f6c-8392-c418eef30eb6/10" >
+        <img src="/getmedia/f9c5c69b-caf5-4285-8d61-d90fba61d9a4/11" >
+        <img src="/getmedia/9ddbedd4-6b05-4295-8b75-aa0c2b3042f5/12" >
+        <img src="/getmedia/9c004d7c-884f-4dce-ac8f-ae2b0ea85083/13" >
+        <img src="/getmedia/f47280d5-1d20-4263-966f-5f7ddb3b2dc4/14" >
+        <img src="/getmedia/c7ecb892-0910-43ed-9e2b-4b072de7cf7d/15" >
+    </div>
+    <div class="text">
+  
+        <p><strong> Більше корисної інформації у наших каналах для турагентів:</strong></p>
+        <ul class="squaredList">
+            <li><a href="https://t.me/tuiteam" target="_blank">Telegram-канал</a></li>
+            <li><a href="https://www.instagram.com/tui.team/" target="_blank">Instagram</a></li>
+        </ul>
+        <br>
+        <br>
+     
+        <p>Чекаємо на Вас!</p>
+        <br>
+        <br>
+        <p style="text-align: right;">З повагою, TUI Ukraine</p>
+    </div>
+
+</div>
